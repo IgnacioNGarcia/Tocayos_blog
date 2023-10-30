@@ -25,7 +25,7 @@ Vue.component('lista-de-posts', {
               <h5 class="card-title">{{post.title}}</h5>
               <p class="card-text" v-html="post.isFullContent ? post.content : post.content.slice(0, 250) + (post.content.length > 250 ? '...' : '')"></p>
   
-              <a v-if="post.content.length > 250" @click="toggleFullContent(post)" class="btn btn-primary">{{ post.isFullContent ? 'Leer menos' : 'Leer más' }}</a>
+              <a v-if="post.content.length > 250" @click="toggleFullContent(post)" class="btn btn-secondary">{{ post.isFullContent ? 'Leer menos' : 'Leer más' }}</a>
               <button @click="deletePost(post.id)" class="btn btn-secondary">Eliminar</button>
             </div>
           </div>

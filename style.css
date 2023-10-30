@@ -1,0 +1,58 @@
+.navbar{
+    background-color: #3E5062;
+}
+.fondo{
+    background-color: #ECF0F5;
+}
+.posteos{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 10px;
+}
+.display-3{
+    margin-left: 100px;
+}
+.boton-entrada {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.footer{
+    background-color: black;
+    color: grey;
+}
+.linkedin{
+    margin-left: 20px;
+}
+.nuevo.post.titulo{
+    width: 402px;
+    height: 40px;
+}
+input[type="text"],
+textarea {
+  width: 80%; /* Establece el ancho al 100% del contenedor */
+  /* Otros estilos que desees agregar */
+}
+
+.boton.posteo{
+    margin-right: 10px;
+}
+.btn {
+    background-color: #3E5062; /* Cambia este color al que desees */
+    border:none;
+    color: white; /* Cambia el color del texto si es necesario */
+    padding: 10px 20px; /* Ajusta el relleno según tus preferencias */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    /* Otros estilos según tus preferencias */
+    &:hover {
+        background-color: #2C3943; /* Cambia el color de fondo al pasar el cursor */
+        color: white; /* Cambia el color del texto */
+        /* Otros estilos al pasar el cursor */
+    }
+}
+.card-title{
+    color: #7AC8CC;
+}
+.card-text{
+    color:#BBBBBB;
+}

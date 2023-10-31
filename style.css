@@ -1,6 +1,12 @@
 .navbar{
     background-color: #3E5062;
 }
+.navbar-brand{
+    color: white;
+}
+.nav-link{
+    color: white;
+}
 .fondo{
     background-color: #ECF0F5;
 }
@@ -56,3 +62,18 @@ textarea {
 .card-text{
     color:#BBBBBB;
 }
+.card-body{
+    border-top: #01A8FF;
+    border-top-style: solid;
+    border-radius : 3px;
+}
+
+iframe{
+    filter: invert(.9) saturate(0.5) hue-rotate(145deg);
+ }
+ .lateral-menu{
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-style: dotted;
+    
+ }

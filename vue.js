@@ -25,7 +25,7 @@ new Vue({
         
         loadStaticPosts() {
             // Simula la carga de datos estáticos
-            this.posts = [
+            this.posts = [ //Acá podría ir el realtime database.post. Averiguar firebase.
                 {
                     id: 1,
                     title: "Aventuras de dos Ignacios: Navegando en las aguas de Vue.js",

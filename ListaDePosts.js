@@ -13,11 +13,12 @@ Vue.component('lista-de-posts', {
         if (index !== -1) {
           this.posts.splice(index, 1);
         }
+        alert("Eliminaste el post :(")
       },
     },
     template: `
       <div class="seccion.post text-center">
-      <h2 class="display-5 text-center">{{ subtitle }}</h2>
+      <h2 class="display-5 text-center">{{ posts.length > 0 ? subtitle : 'No hay entradas' }}</h2>
         <div v-for="post in posts" :key="post.id">
           <div class="card posteos">
             <h5 class="card-header">{{ post.date }}</h5>

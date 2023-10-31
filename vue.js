@@ -76,6 +76,8 @@ new Vue({
     
                 // Restablecer el formulario y ocultar
                 this.hideNewPostForm()
+                alert("Post creado exitosamente!")
+                
             }
         },
         

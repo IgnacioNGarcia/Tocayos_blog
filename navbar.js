@@ -3,7 +3,7 @@ Vue.component('page-navbar', {
     template: `
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Mi blog</a>
+          <a class="navbar-brand" href="index.html">El blog</a>
           <button
             class="navbar-toggler"
             type="button"

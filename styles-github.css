@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    color: #c9d1d9;
+    color: #1f2328;
     margin: 0;
     padding: 0;
 }
@@ -9,8 +9,8 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #0d1117;
-    border: 1px solid #30363d;
+    background-color: #ffffff;
+    /*border: 1px solid #30363d;*/
     border-radius: 6px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
@@ -24,25 +24,43 @@ body {
     text-align: center; 
     width: 48%; 
     padding: 10px; 
-    border: 1px solid #30363d; 
+    border: 1px solid #dededf; 
     border-radius: 6px; 
     box-sizing: border-box; 
 }
 
-.profile-picture {
+.profile-picture1 {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 2px solid #30363d;
+    border: 2px solid #dededf;
     margin: 0 auto 20px; 
 }
 
-.profile-picture img {
+.profile-picture1 img {
     max-width: 100%;
     max-height: 100%;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.profile-picture2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #dededf;
+    margin: 0 auto 20px; 
+}
+
+.profile-picture2 img {
+    max-width: 86%;
+    max-height: 86%;
     border-radius: 50%;
     vertical-align: middle;
 }
@@ -61,14 +79,14 @@ body {
 .profile-info h3 {
     margin: 0;
     font-size: 20px;
-    color: #e0e0e0;
+    color: #1f2351;
     padding-top: 5%;
 }
 
 .profile-info h2 {
     margin: 0;
     font-size: 20px;
-    color: #999;
+    color: #92979e;
     font-family: Raleway, sans-serif;
 }
 
@@ -81,8 +99,8 @@ body {
 }
 
 .container button {
-    background-color: #21262d;
-    color: #c0c8d0;
+    background-color: #f2f2f2;
+    color: #24292f;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -94,11 +112,11 @@ body {
     border-radius: 4px;
     transition: background-color 0.3s;
     font-weight: bold;
-    border: 1px solid #393d42;
+    border: 1px solid #d6d8db;
     }
    
    button:hover {
-    background-color: #30363d;
+    background-color: #d6d8db;
     border: 1px solid #8b949e;
     font-family: Arial, Helvetica, sans-serif;
    }

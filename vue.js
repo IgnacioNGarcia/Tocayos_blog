@@ -4,6 +4,9 @@ new Vue({
         pageTitle: "Tocayo's Blog",
         subtitle: "Entradas anteriores",
         posts: [],
+        showToast: false,
+        toastMessage: "",
+        
         isAddingNewPost: false,  // Controla la visibilidad del formulario
        newPost: {              // Datos del formulario para una nueva entrada
            title: '',
@@ -55,6 +58,14 @@ new Vue({
         showNewPostForm() {
             this.isAddingNewPost = true;
         },
+        mostrarToast(mensaje) {
+            this.showToast = false; //Si hay un cebado metiendo posts o elimnando a las chapas primero lo cierro.
+            this.toastMessage = mensaje;
+            this.showToast = true; // Mostrar el toast al cambiar la propiedad
+            setTimeout(() => {
+                this.showToast = false;
+            }, 3000);
+          },
         hideNewPostForm(){
             this.newPost.title = '';
             this.newPost.content = '';
@@ -76,8 +87,9 @@ new Vue({
     
                 // Restablecer el formulario y ocultar
                 this.hideNewPostForm()
-                alert("Post creado exitosamente!")
-                
+                //alert("Post creado exitosamente!")
+                this.mostrarToast("Post creado exitosamente");
+                console.log(this.toastMessage);
             }
         },
         

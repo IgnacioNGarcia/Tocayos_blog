@@ -7,13 +7,16 @@ Vue.component('lista-de-posts', {
       toggleFullContent(post) {
         post.isFullContent = !post.isFullContent;
       },
+      emitDeletePost() {
+        this.$emit('post-deleted');
+      },
+    
       deletePost(postId) {
         // Encuentra la publicación correspondiente en el arreglo de publicaciones y la elimina
         const index = this.posts.findIndex(post => post.id === postId);
         if (index !== -1) {
           this.posts.splice(index, 1);
         }
-        alert("Eliminaste el post :(")
       },
     },
     template: `
@@ -27,8 +30,8 @@ Vue.component('lista-de-posts', {
               <p class="card-text" v-html="post.isFullContent ? post.content : post.content.slice(0, 250) + (post.content.length > 250 ? '...' : '')"></p>
   
               <a v-if="post.content.length > 250" @click="toggleFullContent(post)" class="btn btn-secondary">{{ post.isFullContent ? 'Leer menos' : 'Leer más' }}</a>
-              <button @click="deletePost(post.id)" class="btn btn-secondary">Eliminar</button>
-            </div>
+              <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary">Eliminar</button>
+              </div>
           </div>
         </div>
       </div>

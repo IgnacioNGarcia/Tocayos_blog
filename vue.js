@@ -1,3 +1,5 @@
+let interval;
+
 new Vue({
     el: '#app',
     data: {
@@ -58,11 +60,16 @@ new Vue({
         showNewPostForm() {
             this.isAddingNewPost = true;
         },
+        handlePostDeleted() {
+            console.log("llegamos al handler");
+            this.mostrarToast(`Post eliminado exitosamente`);
+          },
         mostrarToast(mensaje) {
+            clearInterval(interval)
             this.showToast = false; //Si hay un cebado metiendo posts o elimnando a las chapas primero lo cierro.
             this.toastMessage = mensaje;
             this.showToast = true; // Mostrar el toast al cambiar la propiedad
-            setTimeout(() => {
+            interval = setTimeout(() => {
                 this.showToast = false;
             }, 3000);
           },

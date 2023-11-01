@@ -1,16 +1,14 @@
 body {
-    font-family: Arial, sans-serif;
     color: #1f2328;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
-    /*border: 1px solid #30363d;*/
     border-radius: 6px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
@@ -120,3 +118,41 @@ body {
     border: 1px solid #8b949e;
     font-family: Arial, Helvetica, sans-serif;
    }
+.repositoriesContainer1 {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #dededf; 
+    border-radius: 6px;
+}
+.repositoriesContainer2{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #dededf; 
+    border-radius: 6px;
+}
+.repositoriesContainer1 h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #1f2351;
+    padding-top: 5%;
+}
+.repositoriesContainer2 h3{
+    margin: 0;
+    font-size: 20px;
+    color: #1f2351;
+    padding-top: 5%;
+}
+.repositoriesContainer1 h2{
+    margin: 0;
+    font-size: 20px;
+    color: #92979e;
+    font-family: Raleway, sans-serif;
+}
+.repositoriesContainer2 h2{
+    margin: 0;
+    font-size: 20px;
+    color: #92979e;
+    font-family: Raleway, sans-serif;
+}

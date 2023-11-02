@@ -17,15 +17,31 @@ Vue.component('comment-section', {
             this.nombre = "";
             this.comentario = "";
         },
+        checkNotEmpty(texto){
+            if(texto == ''){
+                throw new Error("Texto vacio");
+            }
+        },
+        emitEmptyComment() {
+            this.$emit('empty-comment');
+          },
         postComment(){
+            try{
+                this.checkNotEmpty(this.nombre);
+                this.checkNotEmpty(comentario);
             const comment = {
                 titular: this.nombre,
                 comentario: this.comentario
             }
-            console.log("Estamos por publicar un comentario");
             this.comentarios.push(comment);
             this.closeModal();
         }
+        catch(error){
+            console.log(error.message);
+            this.emitEmptyComment();
+        }
+        }
+        
     },
     template: `
         <div>

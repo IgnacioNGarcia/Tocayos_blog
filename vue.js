@@ -77,6 +77,9 @@ new Vue({
       console.log("llegamos al handler");
       this.mostrarToast(`Post eliminado exitosamente`);
     },
+    handleEmptyComment() {
+      this.mostrarToast(`No se permite el texto vacio!`);
+    },
     mostrarToast(mensaje) {
       clearInterval(interval);
       this.showToast = false; //Si hay un cebado metiendo posts o elimnando a las chapas primero lo cierro.

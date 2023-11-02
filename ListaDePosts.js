@@ -17,6 +17,9 @@ Vue.component('lista-de-posts', {
         if (index !== -1) {
           this.posts.splice(index, 1);
         }
+      },handleEmptyComment() {
+        this.$emit('empty-comment');
+        // Realiza las acciones necesarias aquí
       },
     },
     template: `
@@ -33,7 +36,7 @@ Vue.component('lista-de-posts', {
               <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary">Eliminar</button>
               </div>
               <div class="card-footer text-body-secondary">
-              <comment-section></comment-section>
+              <comment-section @empty-comment="handleEmptyComment"></comment-section>
               </div>
           </div>
         </div>

@@ -102,3 +102,32 @@ html {
     overflow: hidden; /* Esto asegura que el contenido no se desborde fuera del área redondeada */
   }
   
+  .comment-button {
+    background-color: #7AC8CC;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-button:hover {
+    background-color: #3E5062;
+}
+.card-comentario{
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  width: auto;
+  height: auto;
+  margin-bottom: 10px;
+  
+  
+}
+.titular-comentario{
+  font-size: 25px;
+  text-align: left;
+}
+.comentario-post{
+  text-align: left;
+}

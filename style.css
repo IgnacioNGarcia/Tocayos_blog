@@ -1,80 +1,104 @@
-.navbar{
+html {
+    font-size: 16px;
+  }
+  
+  .navbar {
     background-color: #3E5062;
-}
-.navbar-brand{
+  }
+  
+  .navbar-brand {
     color: white;
-}
-.nav-link{
+  }
+  
+  .nav-link {
     color: white;
-}
-.fondo{
+  }
+  
+  .fondo {
     background-color: #ECF0F5;
-}
-.posteos{
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 10px;
-}
-.display-3{
-    margin-left: 100px;
-}
-.boton-entrada {
+  }
+  
+  .posteos {
+    margin-left: 6.25rem; /* 100px en rem */
+    margin-right: 6.25rem; /* 100px en rem */
+    margin-top: 0.625rem; /* 10px en rem */
+  }
+  
+  .display-3 {
+    margin-left: 6.25rem; /* 100px en rem */
+  }
+  
+  .boton-entrada {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
-}
-.footer{
+    margin-top: 1.25rem; /* 20px en rem */
+  }
+  
+  .footer {
     background-color: black;
     color: grey;
-}
-.linkedin{
-    margin-left: 20px;
-}
-.nuevo.post.titulo{
-    width: 402px;
-    height: 40px;
-}
-input[type="text"],
-textarea {
-  width: 80%; /* Establece el ancho al 100% del contenedor */
-  /* Otros estilos que desees agregar */
-}
-
-.boton.posteo{
-    margin-right: 10px;
-}
-.btn {
+  }
+  
+  .linkedin {
+    margin-left: 1.25rem; /* 20px en rem */
+  }
+  
+  .nuevo.post.titulo {
+    width: 25.125rem; /* 402px en rem */
+    height: 2.5rem; /* 40px en rem */
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 80%; /* Establece el ancho al 100% del contenedor */
+    /* Otros estilos que desees agregar */
+  }
+  
+  .boton.posteo {
+    margin-right: 0.625rem; /* 10px en rem */
+  }
+  
+  .btn {
     background-color: #3E5062; /* Cambia este color al que desees */
-    border:none;
+    border: none;
     color: white; /* Cambia el color del texto si es necesario */
-    padding: 10px 20px; /* Ajusta el relleno según tus preferencias */
+    padding: 1.25rem 2.5rem; /* Ajusta el relleno según tus preferencias */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     /* Otros estilos según tus preferencias */
     &:hover {
-        background-color: #2C3943; /* Cambia el color de fondo al pasar el cursor */
-        color: white; /* Cambia el color del texto */
-        /* Otros estilos al pasar el cursor */
+      background-color: #2C3943; /* Cambia el color de fondo al pasar el cursor */
+      color: white; /* Cambia el color del texto */
+      /* Otros estilos al pasar el cursor */
     }
-}
-.card-title{
+  }
+  
+  .card-title {
     color: #7AC8CC;
-}
-.card-text{
-    color:#BBBBBB;
-}
-.card-body{
-    border-top: #01A8FF;
+  }
+  
+  .card-text {
+    color: #BBBBBB;
+  }
+  
+  .card-body {
+    border-top: 0.0625rem; /* 1px en rem */
     border-top-style: solid;
-    border-radius : 3px;
-}
-
-iframe{
-    filter: invert(.9) saturate(0.5) hue-rotate(145deg);
- }
- .lateral-menu{
+    border-radius: 0.1875rem; /* 3px en rem */
+  }
+  
+  .calendar {
+    filter: invert(0.9) saturate(0.5) hue-rotate(145deg);
+  }
+  
+  .lateral-menu {
     border-left-style: solid;
-    border-left-width: 1px;
+    border-left-width: 0.0625rem; /* 1px en rem */
     border-left-style: dotted;
-    
- }
- 
+  }
+  
+  .toast-container {
+    background-color: #ECF0F5;
+    border-radius: 1.25rem; /* 20px en rem */
+    overflow: hidden; /* Esto asegura que el contenido no se desborde fuera del área redondeada */
+  }
+  

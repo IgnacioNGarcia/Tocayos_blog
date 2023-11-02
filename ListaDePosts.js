@@ -32,6 +32,9 @@ Vue.component('lista-de-posts', {
               <a v-if="post.content.length > 250" @click="toggleFullContent(post)" class="btn btn-secondary">{{ post.isFullContent ? 'Leer menos' : 'Leer más' }}</a>
               <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary">Eliminar</button>
               </div>
+              <div class="card-footer text-body-secondary">
+              <comment-section></comment-section>
+              </div>
           </div>
         </div>
       </div>

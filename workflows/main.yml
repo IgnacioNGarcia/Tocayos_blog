@@ -1,0 +1,15 @@
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: My Action
+      env:
+        SECRET_TOKEN_COLO: ${{ secrets.SECRET_TOKEN_COLO }}
+        SECRET_TOKEN_NACHO: ${{ secrets.SECRET_TOKEN_NACHO }}
+      run: |
+        # Accede a los secretos como variables de entorno
+        echo $SECRET_TOKEN_COLO
+        echo $SECRET_TOKEN_NACHO

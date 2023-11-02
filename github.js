@@ -77,7 +77,7 @@ async function fetchGitHubData(username, userId, token) {
   }
   
   const users = [
-    { username: 'ignacioDanGarcia', userId: 1 , token: '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'},
+    { username: 'ignacioDanGarcia', userId: 1 , token: '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'},
     { username: 'ignacioNGarcia', userId: 2 , token: ''},
   ];
   

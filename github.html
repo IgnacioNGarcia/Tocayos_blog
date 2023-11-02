@@ -10,18 +10,56 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
-
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-github.css">
 </head>
 <body>
     <div id="app" class="fondo">
-
     <page-navbar></page-navbar>
+        <div class="container">
+          <div class="profile">
+              <div class="profile-picture1">
+                  <img id="profileImage1" src="" alt="GitHub Profile Picture dani">
+              </div>
+              <div class="profile-info">
+                  <h1 id="Nombre1"></h1>
+                  <h2 id="Usuario1"></h2>
+                  <h3 id="Bio1"></h3>
+              </div>
+              <div class="buttons">
+                <a href="https://github.com/IgnacioDanGarcia">
+                  <button>Ver perfil</button>
+                </a>
+              </div>
+              <div class="repositoriesContainer1" id="repositoriesContainer1">
+                <h2>Repositorios:</h2>
+              </div>
+          </div>
+          
+          <div class="profile">
+              <div class="profile-picture2">
+                  <img id="profileImage2" src="" alt="GitHub Profile Picture nico">
+              </div>
+              <div class="profile-info">
+                  <h1 id="Nombre2"></h1>
+                  <h2 id="Usuario2"></h2>
+                  <h3 id="Bio2"></h3>
+              </div>
+              <div class="buttons">
+                <a href="https://github.com/IgnacioNGarcia">
+                  <button>Ver perfil</button>
+                </a>
+              </div>
+              <div class="repositoriesContainer2" id="repositoriesContainer2">
+                <h2>Repositorios:</h2>
+              </div>
+          </div>
+      </div>
     <page-footer></page-footer>
-
-
-
     </div>
+
+    <script src="github.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

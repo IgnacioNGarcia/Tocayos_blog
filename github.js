@@ -76,9 +76,11 @@ async function fetchGitHubData(username, userId, token) {
     }
   }
   
+const tokencolo = process.env.SECRET_TOKEN_COLO;
+const tokennacho = process.env.SECRET_TOKEN_NACHO;
   const users = [
-    { username: 'ignacioDanGarcia', userId: 1 , token: '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'},
-    { username: 'ignacioNGarcia', userId: 2 , token: ''},
+    { username: 'ignacioDanGarcia', userId: 1 , token: tokencolo},
+    { username: 'ignacioNGarcia', userId: 2 , token: tokennacho},
   ];
   
   users.forEach((user) => {

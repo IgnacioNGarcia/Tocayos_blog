@@ -2,6 +2,7 @@ Vue.component('lista-de-posts', {
     props: {
       posts: Array, // Pasamos el arreglo de publicaciones como propiedad
       subtitle: String
+      
     },
     methods: {
       toggleFullContent(post) {
@@ -36,7 +37,7 @@ Vue.component('lista-de-posts', {
               <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary">Eliminar</button>
               </div>
               <div class="card-footer text-body-secondary">
-              <comment-section @empty-comment="handleEmptyComment"></comment-section>
+              <comment-section :post="post" @empty-comment="handleEmptyComment"></comment-section>
               </div>
           </div>
         </div>

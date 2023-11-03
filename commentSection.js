@@ -1,10 +1,13 @@
 Vue.component('comment-section', {
+    props: {
+        post: Object, // Pasamos el arreglo de publicaciones como propiedad        
+      },
     data() {
         return {
             modalVisible: false,
+
             nombre: "", // Agrega datos para los campos del formulario
             comentario: "",
-            comentarios: []
         };
     },
     methods: {
@@ -28,12 +31,13 @@ Vue.component('comment-section', {
         postComment(){
             try{
                 this.checkNotEmpty(this.nombre);
-                this.checkNotEmpty(comentario);
+                this.checkNotEmpty(this.comentario);
             const comment = {
                 titular: this.nombre,
                 comentario: this.comentario
             }
-            this.comentarios.push(comment);
+            this.post.comments.push(comment);
+            //console.log(this.post.comments.length);
             this.closeModal();
         }
         catch(error){
@@ -46,7 +50,7 @@ Vue.component('comment-section', {
     template: `
         <div>
         <h3 class="display-8">Comentarios</h3>
-        <div v-for="comentario in comentarios">
+        <div v-for="comentario in post.comments">
         <div class="card card-comentario mx-auto">
 
                 <p class="titular-comentario">{{ comentario.titular }} </p>

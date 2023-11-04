@@ -52,7 +52,6 @@ html {
   input[type="text"],
   textarea {
     width: 80%; /* Establece el ancho al 100% del contenedor */
-    /* Otros estilos que desees agregar */
   }
   
   .boton.posteo {
@@ -65,11 +64,9 @@ html {
     color: white; /* Cambia el color del texto si es necesario */
     padding: 1.25rem 2.5rem; /* Ajusta el relleno según tus preferencias */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    /* Otros estilos según tus preferencias */
     &:hover {
       background-color: #2C3943; /* Cambia el color de fondo al pasar el cursor */
       color: white; /* Cambia el color del texto */
-      /* Otros estilos al pasar el cursor */
     }
   }
   

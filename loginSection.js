@@ -16,12 +16,6 @@ Vue.component('login-section', {
             this.modalVisible = false;
             this.input = '';
         },
-        checkNotEmpty(texto){
-            if(texto == ''){
-                throw new Error("Texto vacio");
-            }
-        },
-        
         emitLoginData(){
             this.$emit('login',this.input);
             this.closeModal()

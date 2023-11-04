@@ -21,5 +21,5 @@ function de_a_un_caracter(texto) {
 function escribir() {
     intervalId = setInterval(function() {
         de_a_un_caracter(texto);
-    }, 25);
+    }, 20);
 }

@@ -1,7 +1,6 @@
 Vue.component('comment-section', {
     props: {
         post: Object, // Pasamos el arreglo de publicaciones como propiedad       
-        isAdmin:Boolean 
       },
     data() {
         return {

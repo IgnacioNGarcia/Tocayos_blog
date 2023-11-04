@@ -29,7 +29,7 @@ Vue.component('login-section', {
     },
     template: `
     <div>
-    <button @click="showModal" class="btn btn-secondary">Entrar como admin</button>
+    <button @click="showModal" v-if="!isAdmin" class="btn btn-secondary">Entrar como admin</button>
 
     <div class="modal" tabindex="-1" role="dialog" :class="{ 'd-block': modalVisible }">
       <div class="modal-dialog">

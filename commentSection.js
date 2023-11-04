@@ -1,6 +1,7 @@
 Vue.component('comment-section', {
     props: {
-        post: Object, // Pasamos el arreglo de publicaciones como propiedad        
+        post: Object, // Pasamos el arreglo de publicaciones como propiedad       
+        isAdmin:Boolean 
       },
     data() {
         return {
@@ -75,11 +76,11 @@ Vue.component('comment-section', {
                             <form>
                                 <div class="form-group">
                                     <label for="nombre">Tu nombre</label>
-                                    <input type="text" class="form-control" id="nombre" placeholder="Ponga su nombre" v-model="nombre">
+                                    <input type="text" class="form-control" placeholder="Ponga su nombre" v-model="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="text">Expresá tu opinion</label>
-                                    <input type="text" class="form-control" id="comentario" v-model="comentario" placeholder="Escriba su comentario acá">
+                                    <input type="text" class="form-control"  v-model="comentario" placeholder="Escriba su comentario acá">
                                 </div>
                             </form>
                         </div>

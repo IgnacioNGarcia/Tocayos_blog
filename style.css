@@ -21,14 +21,15 @@ html {
   .posteos {
     margin-left: 6.25rem; /* 100px en rem */
     margin-right: 6.25rem; /* 100px en rem */
-    margin-top: 0.625rem; /* 10px en rem */
+    margin-top: 5rem; /* 10px en rem */
   }
   
   .display-3 {
     margin-left: 6.25rem; /* 100px en rem */
   }
   
-  .boton-entrada {
+  .boton-entrada,
+  .login-entrada {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1.25rem; /* 20px en rem */

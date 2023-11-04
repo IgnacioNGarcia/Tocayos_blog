@@ -8,15 +8,16 @@ new Vue({
     posts: [],
     showToast: false,
     toastMessage: "",
-
+    isAdmin: false,
     isAddingNewPost: false, // Controla la visibilidad del formulario
     newPost: {
       // Datos del formulario para una nueva entrada
       title: "",
       content: "",
       date: "",
-      comments: []
     },
+    pass: "tocayos" //Traeriamos la pass de la BBDD para hacer el login.
+
   },
   created() {
     // Cargar datos de las entradas estáticas
@@ -75,7 +76,10 @@ new Vue({
             "El día era el lunes 30 de octubre, a una semana de la entrega del trabajo final. Nuestro profesor preguntó al inicio de la clase a todos los grupos cómo iban los trabajos, y ante el silencio, presentamos la idea de Tocayo's blog.<br><br>Luego estuvimos trabajando unas horas los dos Ignacios en una sala hasta que decidimos llamar al profe para conversar acerca del el proyecto. Le mostramos un poco nuestra idea y que estábamos utilizando y cayó una sugerencia de su parte, un nuevo desafío que afrontar en poco tiempo y sin conocimientos previos, algo llamado... Firebase.<br><br>La idea es aprender a crear una base de datos con Firebase, una nueva tecnología de la que no tenemos ni idea y traer los datos de nuestros queridos posteos desde allí.<br><br>En este nuevo capítulo de nuestra aventura de desarrollo, te llevaremos a través de nuestro viaje para aprender y dominar Firebase en tan solo una semana. Descubre cómo enfrentamos este emocionante desafío, superando obstáculos y aprendiendo de la experiencia. Mantente atento, porque FIRE QUE? promete ser un relato lleno de sorpresas, desafíos y, por supuesto, ¡mucho aprendizaje!<br><br>¿Estás listo para unirte a nosotros en este emocionante viaje de descubrimiento? Acompáñanos en FIRE QUE? mientras exploramos el mundo de Firebase, dejando atrás la incertidumbre y abrazando la oportunidad de aprender y crear.<br><br>¡FIRE QUE? - Aprendiendo Firebase en una Semana, es solo el comienzo de una emocionante aventura!",
           date: "30 de octubre de 2023",
           isFullContent: false,
-          comments: []
+          comments: [{
+            titular: "Joaco",
+            comentario: "¡¿Cómo que en una semana?!"
+          }]
 
         },
         // Agrega más entradas aquí
@@ -86,11 +90,24 @@ new Vue({
       this.isAddingNewPost = true;
     },
     handlePostDeleted() {
-      console.log("llegamos al handler");
       this.mostrarToast(`Post eliminado exitosamente`);
     },
     handleEmptyComment() {
       this.mostrarToast(`No se permite el texto vacio!`);
+    },
+    handleLogin(input){
+      if(this.isAdmin){
+        this.mostrarToast("Ya estás adentro.");
+      }else{
+      if(input === this.pass){
+        this.isAdmin = true;
+        this.mostrarToast("Accediste!!!!")
+
+      }else{
+        this.isAdmin = false;
+        this.mostrarToast("Contraseña incorrecta :@")
+      }
+    }
     },
     mostrarToast(mensaje) {
       clearInterval(interval);

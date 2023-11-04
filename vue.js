@@ -95,7 +95,14 @@ new Vue({
     handleEmptyComment() {
       this.mostrarToast(`No se permite el texto vacio!`);
     },
+    checkNotEmpty(texto){
+      if(texto == ''){
+          throw new Error("Texto vacio");
+      }
+    },
     handleLogin(input){
+      try{
+        this.checkNotEmpty(input);
       if(this.isAdmin){
         this.mostrarToast("Ya estás adentro.");
       }else{
@@ -107,6 +114,9 @@ new Vue({
         this.isAdmin = false;
         this.mostrarToast("Contraseña incorrecta :@")
       }
+    }
+    }catch (error){
+      this.mostrarToast("No pusiste una contraseña");
     }
     },
     mostrarToast(mensaje) {

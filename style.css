@@ -21,14 +21,15 @@ html {
   .posteos {
     margin-left: 6.25rem; /* 100px en rem */
     margin-right: 6.25rem; /* 100px en rem */
-    margin-top: 0.625rem; /* 10px en rem */
+    margin-top: 5rem; /* 10px en rem */
   }
   
   .display-3 {
     margin-left: 6.25rem; /* 100px en rem */
   }
   
-  .boton-entrada {
+  .boton-entrada,
+  .login-entrada {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1.25rem; /* 20px en rem */
@@ -51,7 +52,6 @@ html {
   input[type="text"],
   textarea {
     width: 80%; /* Establece el ancho al 100% del contenedor */
-    /* Otros estilos que desees agregar */
   }
   
   .boton.posteo {
@@ -64,11 +64,9 @@ html {
     color: white; /* Cambia el color del texto si es necesario */
     padding: 1.25rem 2.5rem; /* Ajusta el relleno según tus preferencias */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    /* Otros estilos según tus preferencias */
     &:hover {
       background-color: #2C3943; /* Cambia el color de fondo al pasar el cursor */
       color: white; /* Cambia el color del texto */
-      /* Otros estilos al pasar el cursor */
     }
   }
   
@@ -102,3 +100,32 @@ html {
     overflow: hidden; /* Esto asegura que el contenido no se desborde fuera del área redondeada */
   }
   
+  .comment-button {
+    background-color: #7AC8CC;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-button:hover {
+    background-color: #3E5062;
+}
+.card-comentario{
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  width: auto;
+  height: auto;
+  margin-bottom: 10px;
+  
+  
+}
+.titular-comentario{
+  font-size: 25px;
+  text-align: left;
+}
+.comentario-post{
+  text-align: left;
+}

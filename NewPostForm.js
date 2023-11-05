@@ -9,8 +9,8 @@ Vue.component('new-post-form', {
           <input type="text" id="newPostTitle" v-model="newPost.title" required /><br>
           <label for="newPostContent">Contenido:</label><br>
           <textarea id="newPostContent" v-model="newPost.content" required></textarea><br>
-          <button @click="addNewPost" class="btn btn-secondary" type="submit">Publicar</button>
           <button @click="hideNewPostForm" class="btn btn-secondary" type="button">Cancelar</button>
+          <button @click="addNewPost" class="btn btn-secondary" type="submit">Publicar</button>
         </form>
       </div>
     </div>

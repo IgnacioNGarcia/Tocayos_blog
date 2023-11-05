@@ -1,7 +1,9 @@
 Vue.component('lista-de-posts', {
     props: {
       posts: Array, // Pasamos el arreglo de publicaciones como propiedad
-      subtitle: String
+      subtitle: String,
+      isAdmin:Boolean 
+
     },
     methods: {
       toggleFullContent(post) {
@@ -17,6 +19,9 @@ Vue.component('lista-de-posts', {
         if (index !== -1) {
           this.posts.splice(index, 1);
         }
+      },handleEmptyComment() {
+        this.$emit('empty-comment');
+        // Realiza las acciones necesarias aquí
       },
     },
     template: `
@@ -30,7 +35,10 @@ Vue.component('lista-de-posts', {
               <p class="card-text" v-html="post.isFullContent ? post.content : post.content.slice(0, 250) + (post.content.length > 250 ? '...' : '')"></p>
   
               <a v-if="post.content.length > 250" @click="toggleFullContent(post)" class="btn btn-secondary">{{ post.isFullContent ? 'Leer menos' : 'Leer más' }}</a>
-              <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary">Eliminar</button>
+              <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary" v-if="isAdmin">Eliminar</button>
+              </div>
+              <div class="card-footer text-body-secondary">
+              <comment-section :post="post" @empty-comment="handleEmptyComment"></comment-section>
               </div>
           </div>
         </div>

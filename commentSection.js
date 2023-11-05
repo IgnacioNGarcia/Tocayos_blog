@@ -5,7 +5,7 @@ Vue.component('comment-section', {
     data() {
         return {
             modalVisible: false,
-
+            comments: [],
             nombre: "", // Agrega datos para los campos del formulario
             comentario: "",
         };
@@ -28,25 +28,32 @@ Vue.component('comment-section', {
         emitEmptyComment() {
             this.$emit('empty-comment');
           },
-        postComment(){
-            try{
-                this.checkNotEmpty(this.nombre);
-                this.checkNotEmpty(this.comentario);
-            const comment = {
+          postComment() {
+            try {
+              this.checkNotEmpty(this.nombre);
+              this.checkNotEmpty(this.comentario);
+      
+              const comment = {
                 titular: this.nombre,
-                comentario: this.comentario
+                comentario: this.comentario,
+              };
+      
+              // Agregamos el nuevo comentario al array local
+              this.comments.push(comment);
+      
+              // También, lo almacenamos en Firebase
+              const postRef = database.ref('publicaciones').child(this.post.id);
+              const commentsRef = postRef.child('comments');
+              const newCommentRef = commentsRef.push();
+              newCommentRef.set(comment);
+      
+              this.closeModal();
+            } catch (error) {
+              console.log(error.message);
+              this.emitEmptyComment();
             }
-            this.post.comments.push(comment);
-            //console.log(this.post.comments.length);
-            this.closeModal();
-        }
-        catch(error){
-            console.log(error.message);
-            this.emitEmptyComment();
-        }
-        }
-        
-    },
+          },
+        },
     template: `
         <div>
         <h3 class="display-8">Comentarios</h3>
@@ -64,7 +71,7 @@ Vue.component('comment-section', {
 
             <div class="modal" tabindex="-1" role="dialog" :class="{ 'd-block': modalVisible }">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content" id="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Comentario</h5>
                             <button type="button" class="close" @click="closeModal">
@@ -75,11 +82,11 @@ Vue.component('comment-section', {
                             <form>
                                 <div class="form-group">
                                     <label for="nombre">Tu nombre</label>
-                                    <input type="text" class="form-control" placeholder="Ponga su nombre" v-model="nombre">
+                                    <input type="text" class="form-control" id="titular" placeholder="Ponga su nombre" v-model="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="text">Expresá tu opinion</label>
-                                    <input type="text" class="form-control"  v-model="comentario" placeholder="Escriba su comentario acá">
+                                    <input type="text" class="form-control" id="comentario" v-model="comentario" placeholder="Escriba su comentario acá">
                                 </div>
                             </form>
                         </div>
@@ -93,7 +100,3 @@ Vue.component('comment-section', {
         </div>
     `
 });
-/*
-Agregar control de errores con los cometarios. La idea es usar la biblioteca de profanity de js para hacerlo y también tenemos que checkear que el nombre y el comentario no estén vacios.
-Extra: Agregar un toast para los comentarios cuando se publican. 
-*/

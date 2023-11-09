@@ -1,6 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+/*import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";*/
 let interval;
 
 new Vue({
@@ -35,8 +35,8 @@ new Vue({
       databaseURL: "https://tocayos-blog-bbdd-default-rtdb.firebaseio.com"
     };
     
-    const app = initializeApp(firebaseConfig); 
-    this.database = getDatabase(app);
+    const app = firebase.initializeApp(firebaseConfig); 
+    this.database = firebase.database();
     
     this.loadStaticPosts();
   },
@@ -56,14 +56,26 @@ new Vue({
           const post = postSnapshot.val();
           post.id = postSnapshot.key;
     
+          
+          
+          const postRefId = postsRef.child(post.id);
+          const commentsRef = postRefId.child('comments');
+          
+          
           // Agrega un arreglo de comentarios a la publicación
-          post.comments = [];
-    
+          
+          
           // Recorre los comentarios y agrégalos a la publicación
-          if (post.comments) {
-            Object.values(post.comments).forEach((comment) => {
-              post.comments.push(comment);
-            });
+          if (postSnapshot.child('comments').exists()) {
+            const commentsRef = postRefId.child('comments');
+            commentsRef.on('value', (commSnapshot) => {
+              post.comments = [];
+              commSnapshot.forEach((commentSnapshot) => {
+                const comment = commentSnapshot.val();
+                post.comments.push(comment);
+              })
+            }
+            )
           }
     
           posts.push(post);

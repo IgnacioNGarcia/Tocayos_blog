@@ -1,6 +1,6 @@
 Vue.component('comment-section', {
     props: {
-        post: Object, // Pasamos el arreglo de publicaciones como propiedad       
+        post: Object, // Pasamos el arreglo de publicaciones como propiedad   
       },
     data() {
         return {
@@ -39,14 +39,16 @@ Vue.component('comment-section', {
               };
       
               // Agregamos el nuevo comentario al array local
-              this.comments.push(comment);
+              this.post.comments.push(comment);
       
               // También, lo almacenamos en Firebase
-              const postRef = database.ref('publicaciones').child(this.post.id);
+              const postRef = this.database.ref('publicaciones').child(this.post.id);
               const commentsRef = postRef.child('comments');
               const newCommentRef = commentsRef.push();
               newCommentRef.set(comment);
-      
+                console.log('Post Comment Method Called');
+                console.log('Post ID:', this.post.id);
+                console.log('Comment:', comment);
               this.closeModal();
             } catch (error) {
               console.log(error.message);
@@ -82,11 +84,11 @@ Vue.component('comment-section', {
                             <form>
                                 <div class="form-group">
                                     <label for="nombre">Tu nombre</label>
-                                    <input type="text" class="form-control" id="titular" placeholder="Ponga su nombre" v-model="nombre">
+                                    <input type="text" class="form-control" placeholder="Ponga su nombre" v-model="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label for="text">Expresá tu opinion</label>
-                                    <input type="text" class="form-control" id="comentario" v-model="comentario" placeholder="Escriba su comentario acá">
+                                    <input type="text" class="form-control" v-model="comentario" placeholder="Escriba su comentario acá">
                                 </div>
                             </form>
                         </div>

@@ -1,3 +1,6 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
 let interval;
 
 new Vue({
@@ -31,10 +34,10 @@ new Vue({
       measurementId: "G-GPQ4HGLB0T",
       databaseURL: "https://tocayos-blog-bbdd-default-rtdb.firebaseio.com"
     };
-    //EL PROBLEMA ESTA ACA ME PARECE PORQUE NO RECONOCE ESTE FIREBASE, SI LE CAMBIAS EL NOMBRE POR CUALQUIER COSA TAMPOCO LO RECONOCE, TOCATE F12 PARA VER EL ERROR
-    //NECESITO HACER QUE ESTE ARCHIVO RECONOZCA LA FUNCION DE INITIALIZEAPP DE ALGUNA FORMAAAAAAAAA
-    const app = firebase.initializeApp(firebaseConfig); 
-    this.database = app.database();
+    
+    const app = initializeApp(firebaseConfig); 
+    this.database = getDatabase(app);
+    
     this.loadStaticPosts();
   },
   methods: {

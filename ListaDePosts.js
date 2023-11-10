@@ -2,8 +2,8 @@ Vue.component('lista-de-posts', {
     props: {
       posts: Array, // Pasamos el arreglo de publicaciones como propiedad
       subtitle: String,
-      isAdmin:Boolean 
-
+      isAdmin:Boolean, 
+      database: Object
     },
     methods: {
       toggleFullContent(post) {
@@ -14,14 +14,20 @@ Vue.component('lista-de-posts', {
       },
     
       deletePost(postId) {
-        // Encuentra la publicación correspondiente en el arreglo de publicaciones y la elimina
         const index = this.posts.findIndex(post => post.id === postId);
         if (index !== -1) {
           this.posts.splice(index, 1);
         }
+        const postRef = this.database.ref('publicaciones').child(postId);
+        postRef.remove()
+          .then(() => {
+            this.emitDeletePost();
+          })
+          .catch((error) => {
+            console.error("Error al eliminar la publicación:", error);
+          });
       },handleEmptyComment() {
         this.$emit('empty-comment');
-        // Realiza las acciones necesarias aquí
       },
     },
     template: `
@@ -38,7 +44,7 @@ Vue.component('lista-de-posts', {
               <button @click="deletePost(post.id); emitDeletePost()" class="btn btn-secondary" v-if="isAdmin">Eliminar</button>
               </div>
               <div class="card-footer text-body-secondary">
-              <comment-section :post="post" @empty-comment="handleEmptyComment"></comment-section>
+              <comment-section :post="post" :database="database" @empty-comment="handleEmptyComment"></comment-section>
               </div>
           </div>
         </div>

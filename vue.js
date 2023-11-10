@@ -17,7 +17,7 @@ new Vue({
       title: "",
       content: "",
       date: "",
-      comments: [],
+      comments: {},
     },
     pass: "tocayos",
     database: null,
@@ -140,7 +140,7 @@ new Vue({
             content: this.newPost.content,
             date: this.CurrentDate(),
             isFullContent: false,
-            comments: []
+            comments: {}
         });
         this.posts.reverse();
 

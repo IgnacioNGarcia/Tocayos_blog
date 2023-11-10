@@ -33,29 +33,36 @@ Vue.component('comment-section', {
             try {
               this.checkNotEmpty(this.nombre);
               this.checkNotEmpty(this.comentario);
-      
+          
               const comment = {
                 titular: this.nombre,
                 comentario: this.comentario,
               };
-      
-              
-              this.post.comments.push(comment);
-      
-              
+          
               const postRef = this.database.ref('publicaciones').child(this.post.id);
               const commentsRef = postRef.child('comments');
-              const newCommentRef = commentsRef.push();
-              newCommentRef.set(comment);
+          
+              // Verifica si el nodo 'comments' ya existe
+              commentsRef.once('value', (snapshot) => {
+                if (!snapshot.exists()) {
+                  // Si no existe, crea el nodo 'comments' y agrega el comentario
+                  commentsRef.set([comment]); // Puedes almacenar los comentarios como un array si lo prefieres
+                } else {
+                  // Si ya existe, solo agrega el comentario al nodo existente
+                  commentsRef.push().set(comment);
+                }
+          
                 console.log('Post Comment Method Called');
                 console.log('Post ID:', this.post.id);
                 console.log('Comment:', comment);
-              this.closeModal();
+                this.closeModal();
+              });
             } catch (error) {
               console.log(error.message);
               this.emitEmptyComment();
             }
           },
+          
         },
     template: `
         <div>

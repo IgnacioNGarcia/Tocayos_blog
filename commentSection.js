@@ -42,13 +42,13 @@ Vue.component('comment-section', {
               const postRef = this.database.ref('publicaciones').child(this.post.id);
               const commentsRef = postRef.child('comments');
           
-              // Verifica si el nodo 'comments' ya existe
+              
               commentsRef.once('value', (snapshot) => {
                 if (!snapshot.exists()) {
-                  // Si no existe, crea el nodo 'comments' y agrega el comentario
-                  commentsRef.set([comment]); // Puedes almacenar los comentarios como un array si lo prefieres
+                  
+                  commentsRef.set([comment]); 
                 } else {
-                  // Si ya existe, solo agrega el comentario al nodo existente
+                  
                   commentsRef.push().set(comment);
                 }
           

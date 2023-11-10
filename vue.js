@@ -14,16 +14,16 @@ new Vue({
     isAdmin: false,
     isAddingNewPost: false, // Controla la visibilidad del formulario
     newPost: {
-      // Datos del formulario para una nueva entrada
       title: "",
       content: "",
       date: "",
+      comments: [],
     },
-    pass: "tocayos", //Traeriamos la pass de la database para hacer el login.
+    pass: "tocayos",
     database: null,
   },
   created() {
-    // Cargar datos de las entradas estáticas
+    
     const firebaseConfig = {
       apiKey: "AIzaSyDBlyoNp3HPYQPIddyHGEXOcVEG224oMcE",
       authDomain: "tocayos-blog-bbdd.firebaseapp.com",
@@ -47,7 +47,7 @@ new Vue({
       return today.toLocaleDateString(undefined, options);
     },
     loadStaticPosts() {
-      // Crea una referencia a la ubicación de las publicaciones en la base de datos
+      
       const postsRef = this.database.ref('publicaciones');
     
       postsRef.on('value', (snapshot) => {
@@ -61,11 +61,6 @@ new Vue({
           const postRefId = postsRef.child(post.id);
           const commentsRef = postRefId.child('comments');
           
-          
-          // Agrega un arreglo de comentarios a la publicación
-          
-          
-          // Recorre los comentarios y agrégalos a la publicación
           if (postSnapshot.child('comments').exists()) {
             const commentsRef = postRefId.child('comments');
             commentsRef.on('value', (commSnapshot) => {
@@ -81,7 +76,7 @@ new Vue({
           posts.push(post);
         });
     
-        this.posts = posts.reverse();
+        this.posts = posts;
       });
     },    
     
@@ -122,7 +117,7 @@ new Vue({
       clearInterval(interval);
       this.showToast = false; //Si hay un cebado metiendo posts o elimnando a las chapas primero lo cierro.
       this.toastMessage = mensaje;
-      this.showToast = true; // Mostrar el toast al cambiar la propiedad
+      this.showToast = true;
       interval = setTimeout(() => {
         this.showToast = false;
       }, 3000);
@@ -135,12 +130,12 @@ new Vue({
     },
     addNewPost() {
       if (this.newPost.title && this.newPost.content) {
-        // Agregar la nueva entrada al arreglo de entradas
+        
         const postsRef = this.database.ref('publicaciones');
 
         const newPostRef = postsRef.push();
         newPostRef.set({
-            id: this.posts.length + 1, // Puedes ajustar la generación de IDs
+            id: this.posts.length + 1,
             title: this.newPost.title,
             content: this.newPost.content,
             date: this.CurrentDate(),
@@ -149,22 +144,9 @@ new Vue({
         });
         this.posts.reverse();
 
-        // Restablecer el formulario y ocultar
         this.hideNewPostForm();
         this.mostrarToast("Post creado exitosamente");
         console.log(this.toastMessage);
-      }
-    },
-    deletePost(postId) {
-      if (confirm("¿Estás seguro de que deseas eliminar esta publicación?")) {
-        const postRef = this.database.ref('publicaciones').child(postId);
-        postRef.remove()
-          .then(() => {
-            this.handlePostDeleted();
-          })
-          .catch((error) => {
-            console.error("Error al eliminar la publicación:", error);
-          });
       }
     },
   },

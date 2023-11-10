@@ -44,7 +44,7 @@
       ></new-post-form>
       <br /><br />
       
-      <lista-de-posts :posts="posts" :is-admin="isAdmin" :subtitle="subtitle" @post-deleted="handlePostDeleted" @empty-comment="handleEmptyComment"></lista-de-posts>
+      <lista-de-posts :posts="posts" :database="database" :is-admin="isAdmin" :subtitle="subtitle" @post-deleted="handlePostDeleted" @empty-comment="handleEmptyComment"></lista-de-posts>
       <toast :show-toast="showToast" :toast-message="toastMessage"></toast>
 
       <br /><br />
@@ -73,6 +73,6 @@
     <script src="navbar.js"></script>
     <script src="toast.js"></script>
     <script src="loginSection.js"></script>
-    <script src="commentSection.js"></script>
+    <script type="module" src="commentSection.js"></script>
   </body>
 </html>

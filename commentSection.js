@@ -1,12 +1,13 @@
 Vue.component('comment-section', {
     props: {
         post: Object, // Pasamos el arreglo de publicaciones como propiedad   
+        database: Object,
       },
     data() {
         return {
             modalVisible: false,
             comments: [],
-            nombre: "", // Agrega datos para los campos del formulario
+            nombre: "", 
             comentario: "",
         };
     },
@@ -38,10 +39,10 @@ Vue.component('comment-section', {
                 comentario: this.comentario,
               };
       
-              // Agregamos el nuevo comentario al array local
+              
               this.post.comments.push(comment);
       
-              // También, lo almacenamos en Firebase
+              
               const postRef = this.database.ref('publicaciones').child(this.post.id);
               const commentsRef = postRef.child('comments');
               const newCommentRef = commentsRef.push();

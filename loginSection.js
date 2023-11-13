@@ -1,6 +1,6 @@
 Vue.component('login-section', {
     props: {
-        isAdmin:Boolean // Pasamos el arreglo de publicaciones como propiedad        
+        isAdmin:Boolean     
       },
     data() {
         return {
